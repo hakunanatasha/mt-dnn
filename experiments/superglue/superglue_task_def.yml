@@ -1,0 +1,43 @@
+# config for BoolQ
+boolq:
+  data_format: PremiseAndOneHypothesis
+  dropout_p: 0.1
+  enable_san: false
+  metric_meta:
+  - ACC
+  loss: CeCriterion
+  kd_loss: MseCriterion
+  adv_loss: SymKlCriterion
+  n_class: 2
+  task_type: Classification
+cb:
+  data_format: PremiseAndOneHypothesis
+  dropout_p: 0.1
+  enable_san: false 
+  labels:
+  - contradiction
+  - neutral
+  - entailment
+  metric_meta:
+  - ACC
+  loss: CeCriterion
+  kd_loss: MseCriterion
+  adv_loss: SymKlCriterion
+  n_class: 3
+  split_names:
+  - train
+  - dev
+  - test
+rte:
+  data_format: PremiseAndOneHypothesis
+  enable_san: false
+  labels:
+  - not_entailment
+  - entailment
+  metric_meta:
+  - ACC
+  loss: CeCriterion
+  kd_loss: MseCriterion
+  adv_loss: SymKlCriterion
+  n_class: 2
+  task_type: Classification
