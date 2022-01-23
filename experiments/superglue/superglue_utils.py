@@ -13,7 +13,6 @@ import pandas as pd
 import random
 
 def load_boolq(file):
-    # load boolq
     rows = []
     with open(file, encoding="utf8") as f:
         for line in f:
@@ -96,10 +95,11 @@ def load_record(file):
                 query_idx = qa['idx']
                 if is_training:
                     negative_set = entities_set - answers_set
-                    # enumerage all the nagative set
+                    # enumerate all the nagative set
                     positives = list(answers_set)
                     for negative in negative_set:
                         orders = [0, 1]
+                        # shuffle the order of pos/negative samples
                         if "train" in file: shuffle(orders)
                         query_n = query.replace("@placeholder", negative)
                         positive = random.sample(positives, 1).pop()
@@ -174,6 +174,7 @@ def load_copa(file):
     return rows
 
 def load_copa_v0(file):
+    ### ranking objective
     rows = []
     with open(file, encoding="utf8") as f:
         for line in f:
