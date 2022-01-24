@@ -1,4 +1,3 @@
-# config for BoolQ
 boolq:
   data_format: PremiseAndOneHypothesis
   dropout_p: 0.1
@@ -24,10 +23,6 @@ cb:
   kd_loss: MseCriterion
   adv_loss: SymKlCriterion
   n_class: 3
-  split_names:
-  - train
-  - dev
-  - test
 rte:
   data_format: PremiseAndOneHypothesis
   enable_san: false
